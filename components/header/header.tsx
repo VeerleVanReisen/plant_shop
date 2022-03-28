@@ -16,7 +16,9 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import Image from "next/image";
+// import Image from "next/image";
+import Link from "next/link";
+
 const solutions = [
   {
     name: "Analytics",
@@ -105,7 +107,7 @@ export const Header = (props: any) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center border-gray-100 py-6 md:justify-start md:space-x-10 ">
             <div className="flex justify-start lg:w-0 lg:flex-1">
-              <a href="#">
+              <Link href="/">
                 {/* <span className="sr-only">Workflow</span> */}
                 <div className="flex items-start ...">
                   <img
@@ -117,7 +119,7 @@ export const Header = (props: any) => {
                     Plants shop
                   </h1>
                 </div>
-              </a>
+              </Link>
             </div>
             <div className="-mr-2 -my-2 md:hidden">
               <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -126,13 +128,14 @@ export const Header = (props: any) => {
               </Popover.Button>
             </div>
             <Popover.Group as="nav" className="hidden md:flex space-x-10">
-              <a
-                href="#"
-                className="text-base font-medium text-gray-500 hover:text-gray-900"
-              >
-                Producten
-              </a>
-
+              <Link href="/products">
+                <a
+                  href="#"
+                  className="text-base font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Producten
+                </a>
+              </Link>
               <Popover className="relative">
                 {({ open }) => (
                   <>
@@ -419,7 +422,13 @@ export const Header = (props: any) => {
           </Popover.Panel>
         </Transition>
       </Popover>
-      {props.children}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex justify-between items-center border-gray-100 py-6 md:justify-start md:space-x-10 ">
+          <div className="flex justify-start lg:w-0 lg:flex-1">
+            {props.children}
+          </div>
+        </div>
+      </div>
     </>
   );
 };

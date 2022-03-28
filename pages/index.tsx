@@ -7,9 +7,9 @@ import styles from "../styles/Home.module.css";
 const Home: NextPage = () => {
   return (
     <>
-      <Header />
-
-      <h1> Hier komt de inhoud </h1>
+      <Header>
+        <h1> Dit is de homepage </h1>
+      </Header>
     </>
     // <div className={styles.container}>
     //   <Head>
