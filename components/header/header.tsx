@@ -1,4 +1,4 @@
-/* This example requires Tailwind CSS v2.0+ */
+/*Used example from https://tailwindui.com/components/marketing/elements/headers*/
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
@@ -16,7 +16,7 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-
+import Image from "next/image";
 const solutions = [
   {
     name: "Analytics",
@@ -101,17 +101,22 @@ function classNames(...classes: any) {
 export const Header = (props: any) => {
   return (
     <>
-      <Popover className="relative bg-white">
+      <Popover className="relative bg-gray-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+          <div className="flex justify-between items-center border-gray-100 py-6 md:justify-start md:space-x-10 ">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <a href="#">
-                <span className="sr-only">Workflow</span>
-                <img
-                  className="h-8 w-auto sm:h-10"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                  alt=""
-                />
+                {/* <span className="sr-only">Workflow</span> */}
+                <div className="flex items-start ...">
+                  <img
+                    src="/images/icons/logo.svg"
+                    alt="Logo company name"
+                    className="w-12"
+                  />
+                  <h1 className="inline-block align-middle mx-5 text-green h-full my-auto">
+                    Plants shop
+                  </h1>
+                </div>
               </a>
             </div>
             <div className="-mr-2 -my-2 md:hidden">
@@ -121,6 +126,13 @@ export const Header = (props: any) => {
               </Popover.Button>
             </div>
             <Popover.Group as="nav" className="hidden md:flex space-x-10">
+              <a
+                href="#"
+                className="text-base font-medium text-gray-500 hover:text-gray-900"
+              >
+                Producten
+              </a>
+
               <Popover className="relative">
                 {({ open }) => (
                   <>
@@ -130,7 +142,7 @@ export const Header = (props: any) => {
                         "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                       )}
                     >
-                      <span>Solutions</span>
+                      <span>Winkelwagen</span>
                       <ChevronDownIcon
                         className={classNames(
                           open ? "text-gray-600" : "text-gray-400",
@@ -195,21 +207,14 @@ export const Header = (props: any) => {
                   </>
                 )}
               </Popover>
-
-              <a
+              {/* <a
                 href="#"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
               >
-                Pricing
-              </a>
-              <a
-                href="#"
-                className="text-base font-medium text-gray-500 hover:text-gray-900"
-              >
-                Docs
-              </a>
+                Winkelwagen
+              </a> */}
 
-              <Popover className="relative">
+              {/* <Popover className="relative">
                 {({ open }) => (
                   <>
                     <Popover.Button
@@ -298,9 +303,9 @@ export const Header = (props: any) => {
                     </Transition>
                   </>
                 )}
-              </Popover>
+              </Popover> */}
             </Popover.Group>
-            <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+            {/* <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
               <a
                 href="#"
                 className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
@@ -313,7 +318,7 @@ export const Header = (props: any) => {
               >
                 Sign up
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -414,7 +419,6 @@ export const Header = (props: any) => {
           </Popover.Panel>
         </Transition>
       </Popover>
-      <h1>Hier komt de header</h1>
       {props.children}
     </>
   );
