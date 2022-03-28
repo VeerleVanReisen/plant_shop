@@ -8,6 +8,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Header />
+
       <h1> Hier komt de inhoud </h1>
     </>
     // <div className={styles.container}>
