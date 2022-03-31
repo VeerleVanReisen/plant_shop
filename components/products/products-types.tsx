@@ -5,5 +5,7 @@ export interface productsTypes {
   price: number;
   imageSrc: string;
   imageAlt: string;
+  information: string;
+  rating: number;
+  totalReviews: number;
 }
-[];
