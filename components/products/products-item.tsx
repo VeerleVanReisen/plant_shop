@@ -7,10 +7,28 @@ export interface productsItemTypes {
 }
 export const ProductsItem = (props: productsItemTypes) => {
   const price = `$${props.plants.price.toFixed(2)}`;
+  const object = {
+    key1: props.plants.name,
+    key2: "test",
+  };
   return (
     <>
       {/* <Link href="/products/[id]"> */}
-      <Link href={`/products/${props.plants.name}`}>
+      {/* <Link href={`/products/${props.plants.name}`}> */}
+      <Link
+        // href={{
+        //   pathname: "/products/hoi",
+        //   state: {
+        //     name: props.plants.name,
+        //     title: props.plants.title,
+        //     description: props.plants.description,
+        //   },
+        // }}
+        href={{
+          pathname: "/products/productOverview",
+          query: { object: JSON.stringify(props.plants) },
+        }}
+      >
         <a key={props.plants.id} className="group">
           <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
             <img
