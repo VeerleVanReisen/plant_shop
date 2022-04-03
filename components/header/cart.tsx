@@ -12,7 +12,8 @@ import {
   ViewGridIcon,
   XIcon,
 } from "@heroicons/react/outline";
-
+import { useContext } from "react";
+import ProductsContext from "../../store/products-context";
 const solutions = [
   {
     name: "Analytics",
@@ -57,17 +58,20 @@ interface cartTypes {
 }
 
 export const Cart = (props: cartTypes) => {
+  const productsCtx = useContext(ProductsContext);
+  const totalAmount = `$${productsCtx.totalAmount.toFixed(2)}`;
+  const hasItems = productsCtx.items.length > 0;
+
+  const cartItemRemoveHandler = (id) => {};
+
+  const cartItemAddHandler = (item) => {};
+
   const cartItems = (
     <ul>
-      {[
-        {
-          id: "p1",
-          name: "Pink Princess",
-          description: "Aglaonema",
-          price: 5.95,
-        },
-      ].map((item) => (
-        <li>{item.name}</li>
+      {productsCtx.items.map((item) => (
+        <li>
+          {item.name} {item.price}
+        </li>
       ))}
     </ul>
   );

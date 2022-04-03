@@ -19,19 +19,30 @@ const ProductOverviewContent = ({ object }) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const enteredAmount = amountInputRef.current.value;
-    const enteredAmountNumber = +enteredAmount;
+    const enteredNumberOfItems = amountInputRef.current.value;
+    const enteredNumberOfItemsNumber = +enteredNumberOfItems;
 
     if (
-      enteredAmount.trim().length === 0 ||
-      enteredAmountNumber < 1 ||
-      enteredAmountNumber > 100
+      enteredNumberOfItems.trim().length === 0 ||
+      enteredNumberOfItemsNumber < 1 ||
+      enteredNumberOfItemsNumber > 100
     ) {
       setAmountIsValid(false);
       return;
     }
 
     productsCtx.addItem({
+      id: object.id,
+      name: object.name,
+      description: object.description,
+      price: object.price,
+
+      imageSrc: object.imageSrc,
+      imageAlt: object.imageAlt,
+
+      information: object.information,
+      rating: object.rating,
+      totalReviews: object.totalReviews,
       // id: {object.id},
       // name: {object.name},
       // description: {object.description},
