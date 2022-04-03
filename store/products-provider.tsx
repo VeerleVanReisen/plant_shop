@@ -23,6 +23,7 @@ const ProductsProvider = (props) => {
     defaultProductsState
   );
   const addItemToProductsHandler = (item) => {
+    console.log("jkls;df");
     dispatchProductsAction({
       type: "ADD",
       item: item,
