@@ -1,4 +1,5 @@
 import { PlusCircleIcon, MinusCircleIcon } from "@heroicons/react/outline";
+
 import { useContext } from "react";
 import ProductsContext from "../../store/products-context";
 
@@ -34,9 +35,15 @@ export const Cart = (props: cartTypes) => {
                 Amount: {item.amount}
               </p>
             </div>
-            <div className="ml-8">
-              <PlusCircleIcon />
-              <MinusCircleIcon />
+            <div className="ml-10">
+              <button onClick={addItem.bind(null, item)}>
+                <PlusCircleIcon className="h-6 w-6 text-blue-500" />
+              </button>
+            </div>
+            <div className="ml-2">
+              <button onClick={removeItem.bind(null, item.id)}>
+                <MinusCircleIcon className="h-6 w-6 text-blue-500" />
+              </button>
             </div>
           </div>
         </li>
