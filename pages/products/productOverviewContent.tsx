@@ -11,7 +11,7 @@ function classNames(...classes: any) {
 }
 
 const ProductOverviewContent = ({ object }) => {
-  const [amountIsValid, setAmountIsValid] = useState(true);
+  const [amountValid, setAmountValid] = useState(true);
   const amountInputRef = useRef();
 
   const productsCtx = useContext(ProductsContext);
@@ -27,7 +27,7 @@ const ProductOverviewContent = ({ object }) => {
       enteredNumberOfItemsNumber < 1 ||
       enteredNumberOfItemsNumber > 100
     ) {
-      setAmountIsValid(false);
+      setAmountValid(false);
       return;
     }
 
@@ -43,6 +43,8 @@ const ProductOverviewContent = ({ object }) => {
       information: object.information,
       rating: object.rating,
       totalReviews: object.totalReviews,
+
+      amount: enteredNumberOfItemsNumber,
       // id: {object.id},
       // name: {object.name},
       // description: {object.description},
@@ -155,7 +157,7 @@ const ProductOverviewContent = ({ object }) => {
                   >
                     Add to bag
                   </button>
-                  {!amountIsValid && <p> Invalid amount (1-100)</p>}
+                  {!amountValid && <p> Invalid amount (1-100)</p>}
                 </div>
               </form>
             </div>
