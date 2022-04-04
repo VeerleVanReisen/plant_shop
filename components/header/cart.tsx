@@ -12,9 +12,13 @@ export const Cart = (props: cartTypes) => {
   const totalAmount = `€${productsCtx.totalAmount.toFixed(2)}`;
   const cartIsNotEmpty = productsCtx.items.length > 0;
 
-  const removeItem = (id) => {};
+  const removeItem = (id) => {
+    productsCtx.removeItem(id);
+  };
 
-  const addItem = (item) => {};
+  const addItem = (item) => {
+    productsCtx.addItem(item);
+  };
 
   const cartItems = (
     <ul>
