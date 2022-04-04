@@ -6,7 +6,7 @@ export interface productsItemTypes {
   plants: productsTypes;
 }
 export const ProductsItem = (props: productsItemTypes) => {
-  const price = `$${props.plants.price.toFixed(2)}`;
+  const price = `€ ${props.plants.price.toFixed(2)}`;
   const object = {
     key1: props.plants.name,
     key2: "test",
