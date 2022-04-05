@@ -6,7 +6,6 @@ const Products = () => {
   return (
     <ProductsProvider>
       <Header>
-        {/* <h1> Dit is de producten pagina </h1> */}
         <ProductList />
       </Header>
     </ProductsProvider>

@@ -1,14 +1,15 @@
 import ProductsContext from "./products-context";
 import { useReducer } from "react";
-
+import ProductsContextTypeItem from "./products-context-item-type";
+import ProductsContextType from "./products-context-type";
 const defaultProductsState = {
   items: [],
   totalAmount: 0,
 };
-const productsReducer = (state, action) => {
+const productsReducer = (state: any, action: any) => {
   if (action.type === "ADD") {
     const itemAlreadyInArray = state.items.findIndex(
-      (item) => item.id === action.item.id
+      (item: ProductsContextTypeItem) => item.id === action.item.id
     );
 
     const existingItems = state.items[itemAlreadyInArray];
@@ -36,13 +37,15 @@ const productsReducer = (state, action) => {
   }
   if (action.type === "REMOVE") {
     const itemAlreadyInArray = state.items.findIndex(
-      (item) => item.id === action.id
+      (item: ProductsContextTypeItem) => item.id === action.id
     );
     const existingItem = state.items[itemAlreadyInArray];
     const newTotalAmount = state.totalAmount - existingItem.price;
     let newItems;
     if (existingItem.amount === 1) {
-      newItems = state.items.filter((item) => item.id !== action.id);
+      newItems = state.items.filter(
+        (item: ProductsContextTypeItem) => item.id !== action.id
+      );
     } else {
       const newItem = { ...existingItem, amount: existingItem.amount - 1 };
       newItems = [...state.items];
@@ -55,12 +58,12 @@ const productsReducer = (state, action) => {
   }
   return defaultProductsState;
 };
-const ProductsProvider = (props) => {
+const ProductsProvider = (props: any) => {
   const [productsState, dispatchProductsAction] = useReducer(
     productsReducer,
     defaultProductsState
   );
-  const addItemToProductsHandler = (item) => {
+  const addItemToProductsHandler = (item: ProductsContextTypeItem) => {
     console.log("addItemToCart");
     dispatchProductsAction({
       type: "ADD",
@@ -68,13 +71,18 @@ const ProductsProvider = (props) => {
     });
   };
 
-  const removeItemFromProductsHandler = (id) => {
+  const removeItemFromProductsHandler = (id: number) => {
     dispatchProductsAction({
       type: "REMOVE",
       id: id,
     });
   };
-  const productsContext = {
+  const productsContext: {
+    items: ProductsContextTypeItem;
+    totalAmount: number;
+    addItem: (item: any) => void;
+    removeItem: (id: any) => void;
+  } = {
     items: productsState.items,
     totalAmount: productsState.totalAmount,
     addItem: addItemToProductsHandler,

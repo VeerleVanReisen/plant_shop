@@ -1,4 +1,4 @@
-export interface productsTypes {
+export default interface ProductsContextTypeItem {
   id: number;
   name: string;
   description: string;
@@ -8,4 +8,5 @@ export interface productsTypes {
   information: string;
   rating: number;
   totalReviews: number;
+  amount: number;
 }

@@ -2,27 +2,24 @@ import { PlusCircleIcon, MinusCircleIcon } from "@heroicons/react/outline";
 
 import { useContext } from "react";
 import ProductsContext from "../../store/products-context";
+import ProductsContextTypeItem from "../../store/products-context-item-type";
 
-interface cartTypes {
-  closeElement: React.MouseEventHandler<HTMLButtonElement>;
-}
-
-export const Cart = (props: cartTypes) => {
+export const Cart = () => {
   const productsCtx = useContext(ProductsContext);
   const totalAmount = `€${productsCtx.totalAmount.toFixed(2)}`;
   const cartIsNotEmpty = productsCtx.items.length > 0;
 
-  const removeItem = (id) => {
+  const removeItem = (id: number) => {
     productsCtx.removeItem(id);
   };
 
-  const addItem = (item) => {
+  const addItem = (item: ProductsContextTypeItem) => {
     productsCtx.addItem(item);
   };
 
   const cartItems = (
     <ul>
-      {productsCtx.items.map((item) => (
+      {productsCtx.items.map((item: ProductsContextTypeItem) => (
         <li key={item.id}>
           <div className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
             <img
@@ -72,13 +69,6 @@ export const Cart = (props: cartTypes) => {
           </div>
         )}
         <div>
-          {/* <button
-            onClick={props.closeElement}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-          >
-            Close
-          </button> */}
-
           {cartIsNotEmpty && (
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
               Order
@@ -86,22 +76,6 @@ export const Cart = (props: cartTypes) => {
           )}
         </div>
       </div>
-      {/* <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-        {callsToAction.map((item) => (
-          <div key={item.name} className="flow-root">
-            <a
-              href={item.href}
-              className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
-            >
-              <item.icon
-                className="flex-shrink-0 h-6 w-6 text-gray-400"
-                aria-hidden="true"
-              />
-              <span className="ml-3">{item.name}</span>
-            </a>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 };

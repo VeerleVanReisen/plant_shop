@@ -2,28 +2,15 @@ import { productsTypes } from "./products-types";
 import Link from "next/link";
 
 export interface productsItemTypes {
-  key: string;
+  key: number;
   plants: productsTypes;
 }
 export const ProductsItem = (props: productsItemTypes) => {
-  const price = `€ ${props.plants.price.toFixed(2)}`;
-  const object = {
-    key1: props.plants.name,
-    key2: "test",
-  };
+  const price: string = `€ ${props.plants.price.toFixed(2)}`;
+
   return (
     <>
-      {/* <Link href="/products/[id]"> */}
-      {/* <Link href={`/products/${props.plants.name}`}> */}
       <Link
-        // href={{
-        //   pathname: "/products/hoi",
-        //   state: {
-        //     name: props.plants.name,
-        //     title: props.plants.title,
-        //     description: props.plants.description,
-        //   },
-        // }}
         href={{
           pathname: "/products/productOverview",
           query: { object: JSON.stringify(props.plants) },
