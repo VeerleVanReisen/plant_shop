@@ -1,2 +1,0 @@
-# plnts
-Developer NextJS Challenge
