@@ -14,7 +14,7 @@ export const Cart = () => {
   };
 
   const addItem = (item: ProductsContextTypeItem) => {
-    productsCtx.addItem(item);
+    productsCtx.addItem({ ...item, amount: 1 });
   };
 
   const cartItems = (

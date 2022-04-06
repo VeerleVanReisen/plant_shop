@@ -7,6 +7,8 @@ const defaultProductsState = {
   totalAmount: 0,
 };
 const productsReducer = (state: any, action: any) => {
+  console.log("state", state);
+  console.log("action", action);
   if (action.type === "ADD") {
     const itemAlreadyInArray = state.items.findIndex(
       (item: ProductsContextTypeItem) => item.id === action.item.id

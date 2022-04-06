@@ -5,7 +5,7 @@ import { ProductsItem } from "./products-item";
 
 const dummyProducts: productsTypes[] = [
   {
-    id: "p1",
+    id: 1,
     name: "Pink Princess",
     description: "Aglaonema",
     price: 5.95,
@@ -20,7 +20,7 @@ const dummyProducts: productsTypes[] = [
     totalReviews: 376,
   },
   {
-    id: "p2",
+    id: 2,
     name: "Adansonii",
     description: "Monstera",
     price: 4.45,
@@ -34,7 +34,7 @@ const dummyProducts: productsTypes[] = [
     totalReviews: 456,
   },
   {
-    id: "p3",
+    id: 3,
     name: "Neon",
     description: "Syngonium",
     price: 4.95,
@@ -47,7 +47,7 @@ const dummyProducts: productsTypes[] = [
     totalReviews: 132,
   },
   {
-    id: "p4",
+    id: 4,
     name: "Rowleyanus",
     description: "Senecio",
     price: 4.95,
@@ -61,7 +61,7 @@ const dummyProducts: productsTypes[] = [
     totalReviews: 116,
   },
   {
-    id: "p5",
+    id: 5,
     name: "Moonlight",
     description: "Philodendron",
     price: 4.95,
@@ -74,7 +74,7 @@ const dummyProducts: productsTypes[] = [
     totalReviews: 242,
   },
   {
-    id: "p6",
+    id: 6,
     name: "Scandens Micans",
     description: "Philodendron",
     price: 11.95,
@@ -87,7 +87,7 @@ const dummyProducts: productsTypes[] = [
     totalReviews: 242,
   },
   {
-    id: "p7",
+    id: 7,
     name: "White Fusion",
     description: "Calathea",
     price: 29.95,
@@ -100,7 +100,7 @@ const dummyProducts: productsTypes[] = [
     totalReviews: 552,
   },
   {
-    id: "p8",
+    id: 8,
     name: "Melanochrysum",
     description: "Philodendron",
     price: 49.95,

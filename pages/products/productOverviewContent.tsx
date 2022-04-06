@@ -1,4 +1,4 @@
-// Used example https://tailwindui.com/components/ecommerce/components/product-overviews
+// Used example from https://tailwindui.com/components/ecommerce/components/product-overviews
 
 import { withRouter } from "next/router";
 import { useRef, useState, useContext } from "react";
